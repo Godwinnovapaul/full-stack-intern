@@ -7,9 +7,9 @@ function Sidebar() {
 
       <ul className="space-y-5">
         <li>Dashboard</li>
-        <li>Parking Areas</li>
-        <li>Available Slots</li>
-        <li>My Reservations</li>
+        <li>student details</li>
+        <li>registration</li>
+        <li>view details</li>
         <li>Profile</li>
       </ul>
     </aside>

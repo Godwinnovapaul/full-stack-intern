@@ -1,11 +1,10 @@
 import React from "react";
 
-function StudentCard({ title, value, color }) {
+function StudentCard({ title, value }) {
   return (
-    <div className={`bg-white p-6 rounded-xl shadow-md border-l-4 ${color}`}>
-      <h3 className="text-gray-500">{title}</h3>
-
-      <h1 className="text-3xl font-bold mt-3">{value}</h1>
+    <div className="bg-white p-6 rounded-xl shadow-md">
+      <p className="text-gray-500 text-lg">{title}</p>
+      <h2 className="text-3xl font-bold mt-3">{value}</h2>
     </div>
   );
 }

@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import StudentCard from "../components/StudentCard";
-import Footer from "../components/Footer";
 
-import { Button } from "../components/ui/button";
 
 function DashBoard() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="min-h-screen bg-gray-100">
       <Navbar />
@@ -18,41 +18,41 @@ function DashBoard() {
         <main className="flex-1 p-8">
           <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
 
-          <p className="text-gray-500 mb-6">Smart Parking Management System</p>
+          <p className="text-gray-500 mb-6">Smart Student Management System</p>
+
+          {/* Student Cards */}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <StudentCard
-              title="Total Slots"
-              value="100"
-              color="border-blue-500"
-            />
+            <StudentCard title="GODWIN" value="100" />
 
-            <StudentCard
-              title="Available Slots"
-              value="65"
-              color="border-green-500"
-            />
+            <StudentCard title="SUHAIL" value="100" />
 
-            <StudentCard
-              title="Reserved Slots"
-              value="35"
-              color="border-orange-500"
-            />
+            <StudentCard title="GOUTHAM" value="100" />
           </div>
 
-          <div className="bg-white p-6 rounded-xl shadow-md mt-8">
-            <h2 className="text-xl font-bold mb-4">Parking Information</h2>
+          {/* Counter */}
 
-            <p className="mb-4">
-              Check available parking spaces and reserve your parking slot.
-            </p>
+          <div className="bg-white p-5 rounded-xl shadow-md mt-8 text-center">
+            <h2 className="text-xl font-bold mb-3">Counter</h2>
 
-            <Button>Book Parking Slot</Button>
+            <p className="text-3xl font-bold mb-4">{count}</p>
+
+            <button
+              onClick={() => setCount(count + 1)}
+              className="bg-green-600 text-white px-5 py-2 rounded mr-3"
+            >
+              Increase +
+            </button>
+
+            <button
+              onClick={() => setCount(count - 1)}
+              className="bg-red-600 text-white px-5 py-2 rounded"
+            >
+              Decrease -
+            </button>
           </div>
         </main>
       </div>
-
-      <Footer />
     </div>
   );
 }
