@@ -1,16 +1,12 @@
-# React + Vite
+# Event Vendor Booking System - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React dashboard implementation using Vite, Tailwind CSS v4, Shadcn UI, and Zod.
 
-Currently, two official plugins are available:
+## Available Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+In the frontend directory, you can run:
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `npm run dev`: Runs the app in development mode at http://localhost:5173
+- `npm run build`: Compiles and bundles the application for production
+- `npm run preview`: Locally previews the production build
+- `npm run lint`: Runs ESLint to check code quality

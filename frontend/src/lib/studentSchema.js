@@ -1,22 +1,16 @@
 import { z } from "zod";
-
 export const studentSchema = z.object({
   name: z
     .string()
-    .trim()
-    .min(2, "Name must be at least 2 characters")
-    .transform((val) => val.toUpperCase()),
-  email: z.string().trim().toLowerCase().email("Invalid email address"),
-  age: z.coerce
-    .number()
-    .int("Age must be a whole number")
-    .min(1, "Age must be at least 1")
-    .max(120, "Age must be 120 or less"),
-  course: z
-    .string()
-    .trim()
-    .min(2, "Course must be at least 2 characters")
-    .transform((val) => val.toUpperCase()),
+    .min(2, { message: "Name must be at least 2 characters long" })
+    .max(50, { message: "Name cannot exceed 50 characters" }),
+  email: z.string().email({ message: "Invalid email address" }),
+  score: z.coerce.number().min(0).max(100, { message: "Score must be between 0 and 100" }),
 });
+
+export const cleanInput = (input) => {
+  if (typeof input !== "string") return input;
+  return input.trim().replace(/[<>]/g, "");
+};
 
 export default studentSchema;

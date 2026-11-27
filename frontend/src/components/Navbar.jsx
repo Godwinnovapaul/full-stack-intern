@@ -1,50 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
-function Navbar() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    if (username && password) {
-      alert("Welcome " + username);
-    } else {
-      alert("Please enter username and password");
-    }
-  };
-
+function Navbar({ onToggleSidebar }) {
   return (
-    <nav className="bg-blue-700 text-white p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">Smart Student Management System</h1>
+    <nav className="bg-slate-700 text-slate-100 px-6 py-3 flex items-center justify-between shadow-xs sticky top-0 z-30">
+      <div className="flex items-center gap-3">
+        {/* Mobile toggle button */}
+        <button
+          onClick={onToggleSidebar}
+          className="md:hidden p-1 rounded hover:bg-slate-600 text-slate-200 cursor-pointer"
+          aria-label="Toggle menu"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
 
-      <div className="bg-white text-black p-3 rounded-lg shadow-md w-52">
-        <h2 className="text-lg font-bold text-center mb-2">Login</h2>
+        <Link to="/" className="text-xl font-bold tracking-wide text-white">
+          Event Vendor
+        </Link>
+      </div>
 
-        <form onSubmit={handleLogin} className="flex flex-col gap-2">
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="border p-1.5 rounded text-sm"
-          />
-
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="border p-1.5 rounded text-sm"
-          />
-
-          <button
-            type="submit"
-            className="bg-blue-700 text-white p-1.5 rounded text-sm"
-          >
-            Login
-          </button>
-        </form>
+      {/* Navigation links */}
+      <div className="flex items-center gap-6 text-sm font-medium">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold underline underline-offset-4" : "text-slate-300 hover:text-white"
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/booking"
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold underline underline-offset-4" : "text-slate-300 hover:text-white"
+          }
+        >
+          Book Vendor
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "text-white font-bold underline underline-offset-4" : "text-slate-300 hover:text-white"
+          }
+        >
+          About
+        </NavLink>
       </div>
     </nav>
   );
